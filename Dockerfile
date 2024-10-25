@@ -2,7 +2,7 @@
 FROM wordpress:latest
 
 # Copy custom configuration files (if any)
-# COPY wp-config.php /var/www/html/
+COPY ./wp-content /var/www/html/wp-content
 
 # Ensure the WordPress directory is owned by the right user
 RUN chown -R www-data:www-data /var/www/html
