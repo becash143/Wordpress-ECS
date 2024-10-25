@@ -7,7 +7,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "your-unique-s3-bucket-name" # Change to a unique bucket name
+    bucket         = "wordpress-s3"
     key            = "terraform/state"
     region         = var.region
   }
@@ -104,8 +104,8 @@ resource "aws_iam_role_policy" "s3_access" {
           "s3:ListBucket"
         ]
         Resource = [
-          "arn:aws:s3:::your-unique-s3-bucket-name",                     # The bucket itself
-          "arn:aws:s3:::your-unique-s3-bucket-name/*"                  # All objects within the bucket
+          "arn:aws:s3:::wordpress-s3",
+          "arn:aws:s3:::wordpress-s3/*"
         ]
       }
     ]
